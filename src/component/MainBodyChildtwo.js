@@ -6,9 +6,9 @@ const MainBodyChildtwo = ({showImages,isMobile}) => {
     <div style={parentMainBodyChildtwoStyle}>
       <div style={MainBodyChildtwoStyle}>
          {
-          showImages.map((ele)=>(
+          showImages.map((ele,index)=>(
             <div style={subChildtwoStyle}>
-              <img style={{...childTwoImageStyle,width:isMobile ? "375px":"500px"}} src={ele.download_url}/>
+              <img style={{...childTwoImageStyle,width:isMobile ? "375px":"500px"}} src={ele.download_url} key={index+index}/>
             </div>
           ))     
          } 
@@ -16,7 +16,8 @@ const MainBodyChildtwo = ({showImages,isMobile}) => {
     </div>
   )
 }
-//  scroll height , scroll top , client height
+
+
 const parentMainBodyChildtwoStyle={
   display:"flex",
   justifyContent:"center",

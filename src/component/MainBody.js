@@ -3,10 +3,10 @@ import MainBodyChildone from './MainBodyChildone'
 import MainBodyChildtwo from './MainBodyChildtwo'
 import axios from "axios"
 
-
 const MainBody = () => {
   const [Images, setImages]=useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Set initial state based on screen width
+  const [page , setPage] = useState(1);
 
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 768); // Update state based on screen width
@@ -15,12 +15,12 @@ const MainBody = () => {
   async function getData() {
     const storeData = await axios.get("https://picsum.photos/v2/list");
     const result = await storeData.data;
-    setImages(result)
+    setImages((prev)=> [...prev,...result]);
   }  
-  // console.log(Images)
+  
   useEffect(()=>{
     getData();
-  },[])
+  },[page])
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
@@ -29,6 +29,27 @@ const MainBody = () => {
     };
   }, []); 
   
+  const handleInfiniteScroll=(()=>{
+    console.log("scrollTop" + document.documentElement.scrollTop);
+    console.log("innerHeight" + window.innerHeight);
+    console.log("scrollHeight" + document.documentElement. scrollHeight);
+    
+    try {
+      if(document.documentElement.scrollTop+window.innerHeight+1>=document.documentElement. scrollHeight){
+        setPage((prev)=>prev+1);
+      }
+    } catch (error) {
+      console.log("got an error")
+    }
+  })
+
+  useEffect(()=>{
+    window.addEventListener("scroll",handleInfiniteScroll);
+    return ()=>{
+      window.removeEventListener("scroll",handleInfiniteScroll);
+    }
+  },[])
+
   return (
     <div style={parentMainbodyStyle}>
       <div style={MainbodyStyle}>
