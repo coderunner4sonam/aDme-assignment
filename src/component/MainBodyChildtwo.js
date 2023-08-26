@@ -1,13 +1,14 @@
 import React from 'react'
 
-const MainBodyChildtwo = ({showImages}) => {
+const MainBodyChildtwo = ({showImages,isMobile}) => {
+  
   return (
     <div style={parentMainBodyChildtwoStyle}>
       <div style={MainBodyChildtwoStyle}>
          {
           showImages.map((ele)=>(
             <div style={subChildtwoStyle}>
-              <img style={childTwoImageStyle} src={ele.download_url}/>
+              <img style={{...childTwoImageStyle,width:isMobile ? "375px":"500px"}} src={ele.download_url}/>
             </div>
           ))     
          } 
@@ -15,7 +16,7 @@ const MainBodyChildtwo = ({showImages}) => {
     </div>
   )
 }
-
+//  scroll height , scroll top , client height
 const parentMainBodyChildtwoStyle={
   display:"flex",
   justifyContent:"center",
@@ -31,13 +32,14 @@ const subChildtwoStyle={
   display:"flex",
   justifyContent:"space-around",
   alignItems:"wrap",
-  width:"370px",
+  width:"375px",
   height:"370px",
-  margin:"10px"
+  margin:"10px",
 }
 const childTwoImageStyle={
-  width:"370px",
+  height:"360px",
   margin:"10px"
 }
+
 export default MainBodyChildtwo
 

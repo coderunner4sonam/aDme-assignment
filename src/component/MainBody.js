@@ -33,7 +33,7 @@ const MainBody = () => {
     <div style={parentMainbodyStyle}>
       <div style={MainbodyStyle}>
           {!isMobile && <MainBodyChildone showImages={Images} />}
-          <MainBodyChildtwo showImages={Images}/>
+          <MainBodyChildtwo showImages={Images} isMobile={isMobile}/>
       </div>
     </div>
   )
