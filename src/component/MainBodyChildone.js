@@ -1,27 +1,30 @@
 import React from 'react';
-import "../App.css"
+import "../App.css" 
 
-const MainBodyChildone = ({showImages}) => {
-  console.log(showImages)
-    return (
-      <div style={ChildoneparentStyle}>
-        <div style={ChildoneStyle} >
-          <div style={ChildoneLeftStyle}  >
-            <div style={ChildImageoneLeftStyle}>
-              <img src={showImages[0]?.download_url}  style={ChildImageoneLeftStyle}/> 
-            </div>
+const MainBodyChildone = ({ showImages }) => { // Logging the passed showImages prop
+
+  return (
+    <div style={ChildoneparentStyle}>
+      <div style={ChildoneStyle}>
+        {/* Left Column */}
+        <div style={ChildoneLeftStyle}>
+          <div style={ChildImageoneLeftStyle}>
+            <img src={showImages[0]?.download_url} style={ChildImageoneLeftStyle} alt="Left Child Image" />
           </div>
-          <div style={ChildoneRightStyle}>
-            <div style={childImageoneRightStyle} >
-              <img src={showImages[1]?.download_url} style={rightsubStyle} />
-              <img src={showImages[2]?.download_url} style={rightsubStyle} />
-            </div>
+        </div>
+
+        {/* Right Column */}
+        <div style={ChildoneRightStyle}>
+          <div style={childImageoneRightStyle}>
+            <img src={showImages[1]?.download_url} style={rightsubStyle} alt="Right Sub Image 1" />
+            <img src={showImages[2]?.download_url} style={rightsubStyle} alt="Right Sub Image 2" />
           </div>
         </div>
       </div>
-    );
-  };
-  
+    </div>
+  );
+};
+
 const ChildoneparentStyle = {
   display: 'flex',
   justifyContent: 'center',
@@ -31,32 +34,34 @@ const ChildoneparentStyle = {
 const ChildoneStyle = {
   display: 'flex',
   justifyContent: 'space-around',
-  alignItems:"center",
+  alignItems: "center",
   width: '100%',
-  height: '42vh',
+  height: '52vh',
 };
 
 const ChildoneLeftStyle = {
-  width: '70%',
-  height: '36vh',
+  width: '66%',
+  height: '46vh',
 };
-const ChildImageoneLeftStyle={
+
+const ChildImageoneLeftStyle = {
   width: '100%',
-  height: '36vh',
-}
-const childImageoneRightStyle={
-  width: '100%',
-  height:'36vh',
-}
+  height: '46vh',
+};
+
 const ChildoneRightStyle = {
   width: '25%',
+  height: '46vh',
+};
+
+const childImageoneRightStyle = {
+  width: '100%',
   height: '36vh',
 };
 
 const rightsubStyle = {
-  height: '17.5vh',
-  width: '95%',
+  height: '22.8vh',
+  width: '100%',
 };
-
 
 export default MainBodyChildone;

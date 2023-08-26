@@ -1,9 +1,13 @@
 import React from 'react';
+import headerImage from "../asset/headerImage.jpg"
 
 const HeaderImage = () => {
   return (
     <div style={HeaderImageParentStyle}>
-      <div style={mergedHeaderImageStyle}>HeaderImage</div>
+      {/* Main container for the header image */}
+      <div style={HeaderImageStyle}>
+        <img  src={headerImage} style={headerImageStyle} />
+      </div>
     </div>
   );
 };
@@ -15,23 +19,15 @@ const HeaderImageParentStyle = {
 };
 
 const HeaderImageStyle = {
-  height: '30vh',
+  height: '32vh',
   width: '80%',
-  border: '1px solid black',
+  borderLeft: "1px solid black",
+  borderRight: "1px solid black",
   textAlign: 'center',
 };
 
-// Media query for mobile devices (max-width: 768px)
-const mobileMediaQuery = '@media (max-width: 768px)';
-
-const responsiveStyles = {
-  [mobileMediaQuery]: {
-    HeaderImageStyle: {
-      width: '100%',
-    },
-  },
-};
-
-const mergedHeaderImageStyle = Object.assign({}, HeaderImageStyle, responsiveStyles[window.matchMedia(mobileMediaQuery).matches ? mobileMediaQuery : '']);
-
+const headerImageStyle={
+  height: '32vh',
+  width: '100%',
+}
 export default HeaderImage;

@@ -1,21 +1,28 @@
 import React from 'react';
+import logo from "../asset/logo.png"
 
 const Header = () => {
   return (
+    
     <div style={HeaderParentStyle}>
+       {/* Main header container */}
       <div style={mergedHeaderStyle}>
         <div style={HeaderLogoStyle}>
-          <div style={logoStyle}>Logo</div>
+          {/* Logo image */}
+          <div style={logoStyle}>
+            <img src={logo} style={logoImageStyle}/>
+          </div>
         </div>
+         {/* Title container */}
         <div style={HeaderTitleStyle}>
-          <div style={titleStyle}>Site Title</div>
+          <div style={titleStyle}>Image Gallery</div>
         </div>
       </div>
     </div>
   );
 };
 
-const HeaderParentStyle = {
+  const HeaderParentStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -38,28 +45,33 @@ const HeaderParentStyle = {
   };
   
   const logoStyle = {
-    height: '30px',
-    width: '42%',
-    border: '1px solid black',
+    height: '38px',
+    width: '45%',
     textAlign: 'center',
   };
   
+  const logoImageStyle = {
+    height: '38px',
+    width: '45%',
+  }
+
   const HeaderTitleStyle = {
     width: '80%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    color: "darkblue"
   };
   
   const titleStyle = {
     width: '35%',
-    border: '1px solid black',
     textAlign: 'center',
   };
   
   // Media query for mobile devices (max-width: 768px)
   const mobileMediaQuery = '@media (max-width: 768px)';
   
+  // Responsive styles for mobile devices
   const responsiveStyles = {
     [mobileMediaQuery]: {
       HeaderStyle: {
@@ -76,6 +88,7 @@ const HeaderParentStyle = {
     },
   };
   
+  // Merging base styles with responsive styles based on media query
   const mergedHeaderStyle = Object.assign({}, HeaderStyle, responsiveStyles[window.matchMedia(mobileMediaQuery).matches ? mobileMediaQuery : '']);
   
 export default Header;

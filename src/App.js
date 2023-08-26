@@ -5,13 +5,22 @@ import MainBody from './component/MainBody';
 
 function App() {
   return (
-    <div className="App">
+    <div style={parentStyle}>
+      {/* Render the Header component */}
       <Header/>
+
+       {/* Render the HeaderImage component */}
       <HeaderImage/>
+
+       {/* Render the MainBody component */}
       <MainBody/>
     </div>
   );
 }
 
+// CSS style for the parent container
+const parentStyle={
+  margin:"10px"
+}
 export default App;
 
