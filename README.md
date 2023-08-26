@@ -1,3 +1,56 @@
+# Image Gallery App
+
+This is a simple image gallery app built using React. It fetches images from an API and displays them in different sections.
+
+## Setup
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone <repository_url>
+   cd image-gallery-app
+
+## Install Dependencies:
+npm install
+
+## Run the App:
+npm start
+
+## Technologies Used
+React
+Axios
+CSS (Cascading Style Sheets)
+
+## Versions Used
+Node.js: 14.x or higher
+npm: 7.x or higher
+React: "^18.2.0"
+Axios: "^1.4.0"
+
+## Structure
+The app is divided into several components to achieve modularity and reusability:
+App.js: Main entry point of the app.
+Header.js: Component for the header section.
+HeaderImage.js: Component for the header image.
+MainBody.js: Component for the main content, including image fetching and pagination.
+MainBodyChildone.js: Component for the left column of the main content.
+MainBodyChildtwo.js: Component for the right column of the main content.
+
+## Additional Information
+The app is designed to be responsive, adapting to different screen sizes.
+Infinite scrolling is implemented to load more images as you scroll down.
+
+## Component Architechture
+- App(Root)
+    - Header
+    - HeaderImage
+    - MainBody
+        - MainBodyChildone
+        - MainBodyChildtwo
+
+## Checkout the demo
+Hosted link: https://a-dme-assignment.vercel.app/ 
+____________________________________________________________
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
